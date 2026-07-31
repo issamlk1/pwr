@@ -33,9 +33,9 @@ Every task gets its own folder (`.pwr/tasks/<task-id>/`, git-ignored by default)
 | `AGENTS.md` | The constitution — roles, boundaries, retry limits, human approval gates | All 3 agents |
 | `STANDARDS.md` | Shared code-quality law (no dead code, no fallback-chain guessing, no single-use helpers, etc.) | Worker + Reviewer |
 | `stack.example.md` | Template for your project's stack, commands, and conventions | Copy to `stack.md` per project (git-ignored) |
-| `planner.md` | Planner's personality — pushes back on bad requests instead of yes-manning | Planner only |
-| `worker.md` | Worker's personality — minimal diffs, total instruction coverage, never fabricates output | Worker only |
-| `reviewer.md` | Reviewer's personality — skeptical by default, verifies independently, never rubber-stamps | Reviewer only |
+| `agents/planner.md` | Planner's personality — pushes back on bad requests instead of yes-manning | Planner only |
+| `agents/worker.md` | Worker's personality — minimal diffs, total instruction coverage, never fabricates output | Worker only |
+| `agents/reviewer.md` | Reviewer's personality — skeptical by default, verifies independently, never rubber-stamps | Reviewer only |
 | `task-lifecycle.md` | The required shape of `plan.md`, `log.md`, and `review.md` | All 3 agents |
 
 Each agent loads: `AGENTS.md` → `STANDARDS.md` → `stack.md` → its own personality file → `task-lifecycle.md`. No agent reads another agent's personality file.
