@@ -65,4 +65,4 @@ Found a new way an agent misbehaves? Open an issue or PR against `STANDARDS.md` 
 
 ## License
 
-MIT (or your license of choice — update this before publishing).
+MIT 
