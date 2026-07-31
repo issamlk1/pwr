@@ -1,16 +1,20 @@
-# Usage: pwr planner aider/codex/claude..
-# Usage: pwr worker aider/codex/claude..
-# Usage: pwr reviewer aider/codex/claude..
+# OpenCode aliases (already natively run directly in terminal)
+alias ai="opencode run"
+alias ds="opencode run -m deepseek/deepseek-v4-pro"
+alias flash="opencode run -m google/gemini-3.6-flash"
+
+# Codex / OpenAI CLI (uses 'exec' or prompt flag to run directly in terminal)
+alias codex="codex exec"
+
+# Aider (uses --message/--no-auto-commits to run a single prompt in terminal without entering REPL)
+alias aider="aider --no-auto-commits --message"
+# Usage: pwr planner ai
+# Usage: pwr worker codex
+# Usage: pwr reviewer aider
 function pwr() {
   local role=$1
-  local tool=${2:-opencode}
+  local tool=${2:-ai}
   local msg="You are @$role defined in AGENTS.md."
-
   echo "=== Launching @$role using $tool ==="
-
-  if [ "$tool" = "opencode" ]; then
-    opencode run -f AGENTS.md "$msg"
-  else
-    $tool --read AGENTS.md --message "$msg"
-  fi
+  eval "$tool -f AGENTS.md \"\$msg\""
 }
